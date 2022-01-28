@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+  </head>
+  <body class="container">
+    <button id="complimentButton">Get a compliment</button>
+
+    <button id="fortuneButton">Get your fortune</button>
+
+    <button id="quoteButton">Heres a pick-me up</button>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.getElementById("complimentButton").onclick = function () {
+        axios.get("http://localhost:4000/api/compliment/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+
+      document.getElementById("fortuneButton").onclick = function () {
+        axios.get("http://localhost:4000/api/fortune/") 
+              .then(function (response) {
+                const data = response.data;
+                alert(data);
+              });
+      };
+
+
+      
+      document.getElementById("quoteButton").onclick = function () {
+        axios.get("http://localhost:4000/api/quote/") 
+              .then(function (response) {
+                const data = response.data;
+                alert(data);
+              });
+      };
+     
+
+
+
+
+
+
+
+
+
+
+    </script> 
+    
+    <script>
+      function buttonList() {
+        const dropDown = document.getElementById("dropDown"); 
+        document.getElementById("favorite").value = dropDown.options[dropdown.selectedIndex].text;
+      }
+    </script>
+
+
+
+
+
+    <body>
+    
+    <form>
+      <select id = "dropDown" onChange = "buttonList()">
+        <option id = 'complimentButton'>Compliment Button</option>
+        <option id = 'fortuneButton'>Fortune Button</option>
+        <option id = 'quoteButton'>Quote Button</option>
+    
+        </select>
+        <p>Say something nice about yourself: 
+          <input type = "text" id = "favorite"size = "20" >
+          </p>
+      </form>
+    </body>
+  </body>
+</html>
