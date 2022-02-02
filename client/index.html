@@ -9,6 +9,17 @@
     <button id="fortuneButton">Get your fortune</button>
 
     <button id="quoteButton">Heres a pick-me up</button>
+  
+    <label for="add-quote">submit a quote</label>
+    <input type="text" name="add-quote" id="add-quote" />
+    <button id="submit-quote">Submit Quote</button>
+
+  <script>
+      function buttonList() {
+        const dropDown = document.getElementById("dropDown"); 
+        document.getElementById("favorite").value = dropDown.options[dropdown.selectedIndex].text;
+      }
+    </script>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
@@ -39,7 +50,14 @@
       };
      
 
-
+      let userQuote = document.getElementById("add-quote")
+      
+      document.querySelector('#submit-quote').addEventListener('click',() => {
+        console.log(userQuote.value)
+        axios.post("http://localhost:4000/api/quote", {quote:userQuote.value})
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err))
+      })
 
 
 
@@ -50,12 +68,7 @@
 
     </script> 
     
-    <script>
-      function buttonList() {
-        const dropDown = document.getElementById("dropDown"); 
-        document.getElementById("favorite").value = dropDown.options[dropdown.selectedIndex].text;
-      }
-    </script>
+  
 
 
 
