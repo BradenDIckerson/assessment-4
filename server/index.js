@@ -50,4 +50,10 @@ app.post('/api/quote', (req, res) => {
   res.status(200).send(quotes)
 })
 
+app.post('/api/SH', (req, res) => {
+  const {SH} = req.body
+  SH.push(req.body.SH)
+  res.status(200).send(SH)
+})
+
 app.listen(4000, () => console.log("Server running on 4000"));
